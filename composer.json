@@ -1,6 +1,6 @@
 {
     "name": "p7v/illuminate-container-slim-bridge",
-    "description": "Laravel Container",
+    "description": "Illuminate (Laravel) Container integration in Slim",
     "type": "library",
     "license": "MIT",
     "authors": [
