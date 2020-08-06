@@ -20,5 +20,8 @@
         "psr-4": {
             "P7v\\IlluminateContainerSlimBridge\\": "src/"
         }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.13"
     }
 }
