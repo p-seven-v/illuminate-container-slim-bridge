@@ -1,0 +1,21 @@
+{
+    "name": "p7v/illuminate-container-slim-bridge",
+    "description": "Laravel Container",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Plekhanov",
+            "email": "alex@p7v.app"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "P7v\\IlluminateContainerSlimBridge\\": "src/"
+        }
+    }
+}
