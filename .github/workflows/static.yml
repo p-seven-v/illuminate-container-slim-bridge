@@ -1,0 +1,25 @@
+name: Static Analysis
+
+on: [push, pull_request]
+
+jobs:
+  psalm:
+    name: Psalm
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          tools: composer
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --quiet
+
+      - name: Run Psalm
+        run: ./vendor/bin/psalm --output-format=github
