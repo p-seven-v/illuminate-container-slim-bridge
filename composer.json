@@ -11,11 +11,17 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "slim/slim": "^4.2.0",
+        "php-di/invoker": "^2.0",
+        "illuminate/container": "^7.23"
     },
     "autoload": {
         "psr-4": {
-            "P7v\\IlluminateContainerSlimBridge\\": "src/"
+            "P7v\\IlluminateContainerSlim\\": "src/"
         }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.13"
     }
 }
