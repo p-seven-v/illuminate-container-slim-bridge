@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace P7v\IlluminateContainerSlimBridge;
+namespace P7v\IlluminateContainerSlim;
 
 use Invoker\Exception\InvocationException;
 use Invoker\Exception\NotCallableException;

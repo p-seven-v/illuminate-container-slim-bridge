@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "P7v\\IlluminateContainerSlimBridge\\": "src/"
+            "P7v\\IlluminateContainerSlim\\": "src/"
         }
     },
     "require-dev": {
