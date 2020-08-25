@@ -29,3 +29,30 @@ $container = new \Illuminate\Container\Container();
 
 $app = \P7v\IlluminateContainerSlim\Bridge::create($container);
 ```
+
+You can use service providers for container configuration. Your service provider has to extend `P7v\IlluminateContainerSlim\ServiceProvider`. Then provide list of names of your service providers to `usingProviders` method in Bridge.
+
+```php
+class AppServiceProvider extends \P7v\IlluminateContainerSlim\ServiceProvider
+{
+    public function register(): void
+    {
+        $this->bind('key', function () {
+            return new stdClass();
+        });
+        
+        $this->singleton(RepositoryInterface::class, Repository::class);
+    }
+}
+```
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+$providers = [
+    AppServiceProvider::class,
+];
+
+$app = \P7v\IlluminateContainerSlim\Bridge::usingProviders($providers);
+```
