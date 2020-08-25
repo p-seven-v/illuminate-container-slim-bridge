@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace P7v\IlluminateContainerSlim;
 
+use Generator;
 use Illuminate\Container\Container;
 use Invoker\CallableResolver as InvokerCallableResolver;
 use Invoker\Invoker;
@@ -34,6 +35,40 @@ final class Bridge
         $app->getRouteCollector()->setDefaultInvocationStrategy($controllerInvoker);
 
         return $app;
+    }
+
+    /**
+     * @param string[] $providers
+     *
+     * @return App
+     */
+    public static function fromProviders(array $providers): App
+    {
+        $container = new Container();
+
+        /** @var ServiceProvider $provider */
+        foreach (self::createProviders($providers, $container) as $provider) {
+            $provider->register();
+        }
+
+        return self::create($container);
+    }
+
+    /**
+     * @param array $providers
+     * @param Container $container
+     *
+     * @return Generator
+     * @psalm-suppress MoreSpecificReturnType
+     * @psalm-return Generator<int, ServiceProvider, mixed, void>
+     */
+    private static function createProviders(array $providers, Container $container): Generator
+    {
+        /** @var string $provider */
+        foreach ($providers as $provider) {
+            /** @var ServiceProvider */
+            yield new $provider($container);
+        }
     }
 
     private static function createControllerInvoker(ContainerInterface $container): ControllerInvoker
