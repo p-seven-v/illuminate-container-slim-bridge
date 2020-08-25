@@ -42,7 +42,7 @@ final class Bridge
      *
      * @return App
      */
-    public static function fromProviders(array $providers): App
+    public static function usingProviders(array $providers): App
     {
         $container = new Container();
 
