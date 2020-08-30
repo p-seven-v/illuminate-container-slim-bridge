@@ -2,7 +2,7 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/p7v/illuminate-container-slim-bridge)](https://packagist.org/packages/p7v/illuminate-container-slim-bridge)
 
-This package configures Slim to work with the [Illuminate container](https://laravel.com/docs/container).
+This package configures Slim to work with the [Illuminate container](https://laravel.com/docs/container). By default, container supports autowiring.
 
 ## Install
 
