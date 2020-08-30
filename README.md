@@ -1,5 +1,7 @@
 # Illuminate container integration with Slim
 
+[![Packagist Version](https://img.shields.io/packagist/v/p7v/illuminate-container-slim-bridge)](https://packagist.org/packages/p7v/illuminate-container-slim-bridge)
+
 This package configures Slim to work with the [Illuminate container](https://laravel.com/docs/container).
 
 ## Install
