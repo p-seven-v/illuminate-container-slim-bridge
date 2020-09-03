@@ -21,7 +21,7 @@ abstract class ServiceProvider
     /**
      * @param string $abstract
      * @param \Closure|string|null $concrete
-     * 
+     *
      * @return void
      */
     protected function bind(string $abstract, $concrete = null): void
@@ -32,7 +32,7 @@ abstract class ServiceProvider
     /**
      * @param string $abstract
      * @param \Closure|string|null $concrete
-     * 
+     *
      * @return void
      */
     protected function singleton(string $abstract, $concrete = null): void
