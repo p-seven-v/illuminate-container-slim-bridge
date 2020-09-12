@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace P7v\IlluminateContainerSlim;
 
+use Closure;
 use Illuminate\Container\Container;
 
 abstract class ServiceProvider
@@ -18,12 +19,20 @@ abstract class ServiceProvider
 
     abstract public function register(): void;
 
-    protected function bind(string $abstract, string $concrete = null): void
+    /**
+     * @param string $abstract
+     * @param Closure|string|null $concrete
+     */
+    protected function bind(string $abstract, $concrete = null): void
     {
         $this->container->bind($abstract, $concrete);
     }
 
-    protected function singleton(string $abstract, string $concrete = null): void
+    /**
+     * @param string $abstract
+     * @param Closure|string|null $concrete
+     */
+    protected function singleton(string $abstract, $concrete = null): void
     {
         $this->container->singleton($abstract, $concrete);
     }
