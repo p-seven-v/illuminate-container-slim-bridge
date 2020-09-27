@@ -36,4 +36,13 @@ abstract class ServiceProvider
     {
         $this->container->singleton($abstract, $concrete);
     }
+
+    /**
+     * @param string $abstract
+     * @param mixed $instance
+     */
+    protected function instance(string $abstract, $instance): void
+    {
+        $this->container->instance($abstract, $instance);
+    }
 }
