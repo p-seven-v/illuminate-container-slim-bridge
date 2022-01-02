@@ -15,7 +15,7 @@
         "php": ">=7.3.0",
         "slim/slim": "^4.2.0",
         "php-di/invoker": "^2.0",
-        "illuminate/container": "^7.23 | ^8.0"
+        "illuminate/container": "^7.23 || ^8.0"
     },
     "autoload": {
         "psr-4": {
