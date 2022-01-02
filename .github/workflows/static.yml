@@ -1,25 +1,39 @@
 name: Static Analysis
 
-on: [push, pull_request]
+on:
+  - push
+  - pull_request
 
 jobs:
-  psalm:
-    name: Psalm
-    runs-on: ubuntu-20.04
+  static-analysis-psalm:
+    name: "Static Analysis by Psalm, PHP ${{ matrix.php }} - ${{ matrix.dependencies }}"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php:
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
+        dependencies:
+          - "locked"
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: "Setup PHP"
+        uses: "shivammathur/setup-php@v2"
         with:
-          php-version: 7.3
-          tools: composer
-          coverage: none
+          php-version: "${{ matrix.php }}"
+          tools: "composer:v2"
+          coverage: "none"
 
-      - name: Install dependencies
-        run: composer install --no-interaction --quiet
+      - name: "Composer install"
+        uses: "ramsey/composer-install@v2"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: Run Psalm
         run: ./vendor/bin/psalm --output-format=github
