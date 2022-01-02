@@ -46,7 +46,6 @@ final class Bridge
     {
         $container = new Container();
 
-        /** @var ServiceProvider $provider */
         foreach (self::createProviders($providers, $container) as $provider) {
             $provider->register();
         }
